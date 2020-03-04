@@ -110,7 +110,7 @@ export class ServerlessFormParser {
     headers: Record<string, any>,
     files: Record<string, any>,
     params: Record<string, any>
-  ): [busboy.Busboy, Promise<Record<string, any>>] {
+  ): [Busboy, Promise<Record<string, any>>] {
     const busboy = new Busboy({ headers: headers })
     busboy.on(
       "file",

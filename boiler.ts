@@ -15,7 +15,7 @@ export const install: InstallBoiler = async ({
   actions.push({
     action: "npmInstall",
     dev: true,
-    source: ["aws-lambda"],
+    source: ["@types/aws-lambda", "aws-lambda"],
   })
 
   return actions
