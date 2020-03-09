@@ -9,7 +9,7 @@ export const install: InstallBoiler = async ({
 
   actions.push({
     action: "npmInstall",
-    source: ["busboy"],
+    source: ["busboy", "tmp-promise"],
   })
 
   actions.push({
