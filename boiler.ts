@@ -1,8 +1,8 @@
 import { join } from "path"
 
-import { InstallBoiler, GenerateBoiler } from "boiler-dev"
+import { ActionBoiler } from "boiler-dev"
 
-export const install: InstallBoiler = async ({
+export const install: ActionBoiler = async ({
   cwdPath,
 }) => {
   const actions = []
@@ -21,7 +21,7 @@ export const install: InstallBoiler = async ({
   return actions
 }
 
-export const generate: GenerateBoiler = async ({
+export const generate: ActionBoiler = async ({
   cwdPath,
   files,
 }) => {
