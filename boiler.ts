@@ -1,10 +1,6 @@
-import { join } from "path"
-
 import { ActionBoiler } from "boiler-dev"
 
-export const install: ActionBoiler = async ({
-  cwdPath,
-}) => {
+export const install: ActionBoiler = async () => {
   const actions = []
 
   actions.push({
@@ -21,23 +17,14 @@ export const install: ActionBoiler = async ({
   return actions
 }
 
-export const generate: ActionBoiler = async ({
-  cwdPath,
-  files,
-}) => {
+export const generate: ActionBoiler = async () => {
   const actions = []
 
-  for (const file of files) {
-    const { name, source } = file
-
-    if (name === "formParser.ts") {
-      actions.push({
-        action: "write",
-        path: join(cwdPath, "src", name),
-        source,
-      })
-    }
-  }
+  actions.push({
+    action: "write",
+    path: "src/formParser.ts",
+    sourcePath: "tsignore/formParser.ts",
+  })
 
   return actions
 }
