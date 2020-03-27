@@ -128,7 +128,7 @@ export class ServerlessFormParser {
         file.pipe(stream)
 
         file.on("data", () => {})
-        file.on("end", function() {
+        file.on("end", function () {
           files[fieldname] = {
             path,
             name: basename(filename),
@@ -144,7 +144,7 @@ export class ServerlessFormParser {
     })
 
     const finished = new Promise((resolve, reject) => {
-      busboy.on("finish", function() {
+      busboy.on("finish", function () {
         resolve({ params, files })
       })
     })
@@ -169,11 +169,11 @@ export class ServerlessFormParser {
   ): Promise<Record<string, any>> {
     let json = ""
 
-    req.on("data", chunk => {
+    req.on("data", (chunk) => {
       json += chunk
     })
 
-    const finished = new Promise(resolve => {
+    const finished = new Promise((resolve) => {
       req.on("end", async () => {
         resolve({ files: {}, params: JSON.parse(json) })
       })
@@ -187,11 +187,11 @@ export class ServerlessFormParser {
   ): Promise<Record<string, any>> {
     let data = ""
 
-    req.on("data", chunk => {
+    req.on("data", (chunk) => {
       data += chunk
     })
 
-    const finished = new Promise(resolve => {
+    const finished = new Promise((resolve) => {
       req.on("end", async () => {
         resolve({
           files: {},
